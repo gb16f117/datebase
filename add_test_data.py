@@ -3,7 +3,6 @@
 
 from database_service import db_service
 import random
-from datetime import datetime
 
 def generate_test_data():
     """生成50条测试数据"""

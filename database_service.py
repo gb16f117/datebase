@@ -1,5 +1,4 @@
 import pymysql
-from datetime import datetime
 
 class DatabaseService:
     def __init__(self):
@@ -9,8 +8,7 @@ class DatabaseService:
             'password': '',  # 空密码
             'database': 'student_db',
             'charset': 'utf8mb4',
-            'cursorclass': pymysql.cursors.DictCursor,
-            'unix_socket': '/var/run/mysqld/mysqld.sock'
+            'cursorclass': pymysql.cursors.DictCursor
         }
 
     def get_db_connection(self):
@@ -120,10 +118,6 @@ class DatabaseService:
         connection = self.get_db_connection()
         try:
             with connection.cursor() as cursor:
-                # 设置连接字符集为utf8mb4
-                cursor.execute("SET NAMES utf8mb4")
-                cursor.execute("SET CHARACTER SET utf8mb4")
-                
                 sql = "SELECT * FROM users WHERE 1=1"
                 params = []
 

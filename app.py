@@ -1,13 +1,9 @@
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
-import os
 from database_service import db_service
 
 app = Flask(__name__)
 CORS(app)  # 启用CORS支持
-
-# 配置
-app.config['SECRET_KEY'] = 'your-secret-key-here'
 
 # 直接提供 test_frontend.html 页面
 @app.route('/')
